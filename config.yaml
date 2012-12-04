@@ -1,0 +1,27 @@
+---
+name: puyu
+version: 2
+accesskey: lzm41l2oj4
+handle:
+	- hostaccess: if(path ~ "/mycron/") allow "10.0.0.0/8"
+	- rewrite: if(path ~ "admin/(.*)") goto "/test/$1"
+cron:
+	- description: catch part of speech
+		url: mycron/catch_part_of_speech.php
+		schedule: $2 day of month 4:56
+		login: benson@damacheng
+		
+	- description: catch sogou
+		url: mycron/catch_sogou.php
+		schedule: every day of month 2:34
+		login: benson@damacheng
+		
+	- description: catch liuxingci
+		url: mycron/catch_popular_words.php
+		schedule: every day of month 8:09
+		login: benson@damacheng
+		
+	- description: catch cell
+		url: mycron/catch_cell.php
+		schedule: every day of month 14:50
+		login: benson@damacheng
